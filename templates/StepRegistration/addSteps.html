@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <br>
+    <h1>Create your forms here!</h1>
+    <div class="container">
+        <div class="col-8">
+            <form method="POST">
+                <h5>Enter all your steps in Kms</h5>
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    <strong>Error!</strong> {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <a href="{% url 'home' %}">Back</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
