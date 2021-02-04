@@ -1,9 +1,9 @@
 from django.contrib import messages, auth
 from django.contrib.auth import login
-from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.db import IntegrityError
 from django.shortcuts import render, redirect
+from StepRegistration.models import Step
 
 
 def register(request):
@@ -55,12 +55,13 @@ def sign_in(request):
 
         if user:
             login(request, user)
-            # ifUserSteps = Step.objects.filter(user=user.id).values()
-            # if ifUserSteps:
-            #     return redirect("home")
-            # else:
-            return redirect("home")
-            return redirect("add-steps")
+            ifUserSteps = Step.objects.filter(user=user.id).values()
+            if ifUserSteps:
+                print("yes")
+                return redirect("home")
+            else:
+                print("no")
+                return redirect("add-steps")
         else:
             messages.error(request, "Unable to verify username and password")
             return redirect('sign-in')
