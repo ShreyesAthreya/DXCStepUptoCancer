@@ -61,7 +61,6 @@
                 {% endfor %}
             {% endif %}
             <br>
-
             <div class="col">
                 <table id="tablePreview" class="table table-hover">
                     <thead>
@@ -77,9 +76,11 @@
                         <tr>
                             <th scope="row">{{ forloop.counter }}
                                 {% if item.user.is_DXC %}
-                                    <i class="bi bi-person-fill" style="color: rgba(153, 102, 255, 1);"></i>
+                                    <i class="bi bi-person-fill" data-toggle="tooltip" data-html="true" title="DXC"
+                                       style="color: rgba(153, 102, 255, 1);"></i>
                                 {% else %}
-                                    <i class="bi bi-person-fill" style="color: rgba(54, 162, 235, 1);"></i>
+                                    <i class="bi bi-person-fill" data-toggle="tooltip" data-html="true" title="Amey"
+                                       style="color: rgba(54, 162, 235, 1);"></i>
                                 {% endif %}
                             </th>
                             <td>{{ item.user.first_name }}</td>
