@@ -6,23 +6,25 @@
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Amey', 'DXC'],
+                    labels: ['Amey: {{ Amey }}', 'DXC: {{ DXC }}', 'Total: {{ TotalSteps }}'],
                     datasets: [{
-                        label: 'Total Distance Kms',
-                        data: [{{ Amey }}, {{ DXC }}],
+                        label: 'Total Steps',
+                        data: [{{ Amey }}, {{ DXC }}, {{ TotalSteps }}],
                         backgroundColor: [
                             'rgba(54, 162, 235, 0.2)',
                             'rgba(153, 102, 255, 0.2)',
+                            '#948eed'
                         ],
                         borderColor: [
                             'rgba(54, 162, 235, 1)',
                             'rgba(153, 102, 255, 1)',
+                            'rgba(44, 7, 145)'
                         ],
                         borderWidth: 1
                     }]
                 },
                 options: {
-
+                    tooltips: false,
                     scales: {
                         yAxes: [{
                             ticks: {
@@ -61,6 +63,7 @@
                 {% endfor %}
             {% endif %}
             <br>
+            <h4>Leaderboard</h4>
             <div class="col">
                 <table id="tablePreview" class="table table-hover">
                     <thead>
@@ -68,7 +71,7 @@
                         <th>#</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Distance Travelled</th>
+                        <th>Steps Travelled</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -85,7 +88,7 @@
                             </th>
                             <td>{{ item.user.first_name }}</td>
                             <td>{{ item.user.last_name }}</td>
-                            <td>{{ item.steps }}Kms
+                            <td>{{ item.steps }} Steps
                                 <a href="{% url 'view-steps' item.pk %}">(View)</a>
                                 {% if item.user.id == user.id %}
                                     <a href="{% url 'update-steps' item.pk %}">(Edit)</a>

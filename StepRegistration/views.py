@@ -60,6 +60,7 @@ class HomeView(ListView):
                 DXCSteps += Steps[0]
             context['DXC'] = DXCSteps
             context['Amey'] = AmeySteps
+            context['TotalSteps'] = AmeySteps + DXCSteps
         except:
             pass
         return context

@@ -8,21 +8,21 @@ from django.urls import reverse
 
 class Step(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    steps: float = models.DecimalField(default=0, max_digits=7, decimal_places=2)
-    Day_1: float = models.DecimalField(blank=True, null=True, default=0, max_digits=5, decimal_places=2,
-                                       validators=[MinValueValidator(Decimal('0'))])
-    Day_2: float = models.DecimalField(blank=True, null=True, default=0, max_digits=5, decimal_places=2,
-                                       validators=[MinValueValidator(Decimal('0'))])
-    Day_3: float = models.DecimalField(blank=True, null=True, default=0, max_digits=5, decimal_places=2,
-                                       validators=[MinValueValidator(Decimal('0'))])
-    Day_4: float = models.DecimalField(blank=True, null=True, default=0, max_digits=5, decimal_places=2,
-                                       validators=[MinValueValidator(Decimal('0'))])
-    Day_5: float = models.DecimalField(blank=True, null=True, default=0, max_digits=5, decimal_places=2,
-                                       validators=[MinValueValidator(Decimal('0'))])
-    Day_6: float = models.DecimalField(blank=True, null=True, default=0, max_digits=5, decimal_places=2,
-                                       validators=[MinValueValidator(Decimal('0'))])
-    Day_7: float = models.DecimalField(blank=True, null=True, default=0, max_digits=5, decimal_places=2,
-                                       validators=[MinValueValidator(Decimal('0'))])
+    steps: int = models.IntegerField(default=0)
+    Day_1: int = models.IntegerField(blank=True, null=True, default=0,
+                                     validators=[MinValueValidator(Decimal('0'))])
+    Day_2: int = models.IntegerField(blank=True, null=True, default=0,
+                                     validators=[MinValueValidator(Decimal('0'))])
+    Day_3: int = models.IntegerField(blank=True, null=True, default=0,
+                                     validators=[MinValueValidator(Decimal('0'))])
+    Day_4: int = models.IntegerField(blank=True, null=True, default=0,
+                                     validators=[MinValueValidator(Decimal('0'))])
+    Day_5: int = models.IntegerField(blank=True, null=True, default=0,
+                                     validators=[MinValueValidator(Decimal('0'))])
+    Day_6: int = models.IntegerField(blank=True, null=True, default=0,
+                                     validators=[MinValueValidator(Decimal('0'))])
+    Day_7: int = models.IntegerField(blank=True, null=True, default=0,
+                                     validators=[MinValueValidator(Decimal('0'))])
 
     def __str__(self):
         return self.user.username
