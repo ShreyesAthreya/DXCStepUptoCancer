@@ -25,7 +25,8 @@ SECRET_KEY = '17qgw3eeh^+u&+850x6v01o-ckfx&v!&n$6fp%1j(qr0^inkf6'
 DEBUG = True
 
 ALLOWED_HOSTS = ['shreyesathreya.pythonanywhere.com', 'localhost', '127.0.0.1',
-                 'dxcameystepleaderboard.herokuapp.com', 'dxcameystepleaderboard.co.uk']
+                 'dxcameystepleaderboard.herokuapp.com', 'dxcameystepleaderboard.co.uk',
+                 'www.dxcameystepleaderboard.co.uk']
 
 # Application definition
 
