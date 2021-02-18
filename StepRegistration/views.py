@@ -47,22 +47,28 @@ class HomeView(ListView):
         DXCSteps = 0
         AmeySteps = 0
 
-        try:
-            for user in TeamAmey:
-                userID = User.objects.get(username=user).id
-                Steps = Step.objects.filter(user_id=userID).values('steps').values_list('steps', flat=True)
+        # try:
+        for user in TeamAmey:
+            userID = User.objects.get(username=user).id
+            Steps = Step.objects.filter(user_id=userID).values('steps').values_list('steps', flat=True)
+            try:
                 AmeySteps += Steps[0]
+            except:
+                pass
 
-            for user in TeamDXC:
-                userID = User.objects.get(username=user).id
-                Steps = Step.objects.filter(user_id=userID).values('steps').values_list('steps', flat=True)
-                print(DXCSteps)
+        for user in TeamDXC:
+            userID = User.objects.get(username=user).id
+            Steps = Step.objects.filter(user_id=userID).values('steps').values_list('steps', flat=True)
+            try:
                 DXCSteps += Steps[0]
-            context['DXC'] = DXCSteps
-            context['Amey'] = AmeySteps
-            context['TotalSteps'] = AmeySteps + DXCSteps
-        except:
-            pass
+            except:
+                pass
+
+        context['DXC'] = DXCSteps
+        context['Amey'] = AmeySteps
+        context['TotalSteps'] = AmeySteps + DXCSteps
+        # except:
+        #     pass
         return context
 
 
