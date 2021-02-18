@@ -24,7 +24,7 @@ SECRET_KEY = '17qgw3eeh^+u&+850x6v01o-ckfx&v!&n$6fp%1j(qr0^inkf6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shreyesathreya.pythonanywhere.com']
+ALLOWED_HOSTS = ['shreyesathreya.pythonanywhere.com', 'localhost', '127.0.0.1', 'dxcameystepleaderboard.herokuapp.com']
 
 # Application definition
 
@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 AUTO_LOGOUT = 52560000
 
 ROOT_URLCONF = 'DXCvsAmey.urls'
