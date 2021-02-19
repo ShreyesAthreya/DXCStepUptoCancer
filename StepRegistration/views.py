@@ -67,8 +67,10 @@ class HomeView(ListView):
         context['DXC'] = DXCSteps
         context['Amey'] = AmeySteps
         context['TotalSteps'] = AmeySteps + DXCSteps
+        # except:
+        #     pass
         return context
-
+    #
     # def get_queryset(self):
     #     userID = self.request.user.id
     #     try:
