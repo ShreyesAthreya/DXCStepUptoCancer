@@ -25,7 +25,7 @@ def addSteps(request):
                 messages.success(request, "You have added your steps successfully!")
             return redirect("home")
         except IntegrityError:
-            messages.error(request, "You already have steps created. Go to the homepage to edit em !")
+            messages.error(request, "You already have your steps registered. Go to the homepage to edit them!")
             return redirect("add-steps")
 
     context = {'form': form}
@@ -70,6 +70,18 @@ class HomeView(ListView):
         # except:
         #     pass
         return context
+    #
+    # def get_queryset(self):
+    #     userID = self.request.user.id
+    #     try:
+    #         Steps = Step.objects.filter(user_id=userID).values('steps').values_list('steps', flat=True)
+    #         if (Steps[0]):
+    #             addStepsButton = True
+    #     except:
+    #         addStepsButton = False
+    #
+    #     def get_context_data(self, **kwargs):
+    #         context = super().get_context_data(**kwargs)
 
 
 class StepDetailView(DetailView):

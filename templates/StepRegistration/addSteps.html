@@ -10,14 +10,9 @@
                     {{ form.as_p }}
                     {% if messages %}
                         {% for message in messages %}
-                            <div class="alert alert-success alert-dismissible fade show">
-                                <strong>Success!</strong> {{ message }}
+                            <div class="alert alert-danger" role="alert">
+                                {{ message|safe }}
                             </div>
-                            {% if error %}
-                                <div class="alert alert-danger" role="alert">
-                                    {{ error }}
-                                </div>
-                            {% endif %}
                         {% endfor %}
                     {% endif %}
                     <button type="submit" class="btn btn-primary">Submit</button>

@@ -24,33 +24,34 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <a class="navbar-brand" href="{% url 'add-steps' %}"><small> &nbsp; Add Steps</small></a>
             {% if not user.is_authenticated %}
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'register' %}">Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'sign-in' %}">Sign In</a>
-                    </li>
-                </ul>
-            </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'register' %}">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'sign-in' %}">Sign In</a>
+                        </li>
+                    </ul>
+                </div>
             {% endif %}
 
             {% if user.is_authenticated %}
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <div class="nav-text" style="color:white">Hi, {{ user.first_name }}</div>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" style="color:ghostwhite" href="{% url 'logout' %}">Sign Out</a>
-                    </li>
-                </ul>
-            </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <div class="nav-text" style="color:white">Hi, {{ user.first_name }}</div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:ghostwhite" href="{% url 'logout' %}">Sign Out</a>
+                        </li>
+                    </ul>
+                </div>
             {% endif %}
         </div>
     </nav>
