@@ -70,6 +70,7 @@ class HomeView(ListView):
         # except:
         #     pass
         return context
+
     #
     # def get_queryset(self):
     #     userID = self.request.user.id
